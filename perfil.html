@@ -608,10 +608,177 @@
 
 
           <section class="card__container">
-
-            <!-- Estadisticas -->
-
-            <button type="button">
+    <dialog id="team-pokemon-modal" class="modal" closeby="any">
+    <form method="dialog">
+      <h2>Estadísticas</h2>
+      <section class="statistics-modal__content">
+        <p>Comparativa de los Pokémon de tu equipo</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Pokémon</th>
+              <th>PS</th>
+              <th>ATQ</th>
+              <th>DEF</th>
+              <th>AT.ESP</th>
+              <th>DEF.ESP</th>
+              <th>VEL</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img src="/assets/bulbasaur.png" alt="Bulbasaur" width="50" height="50">
+                <p>Bulbasaur</p>
+              </td>
+              <td>45</td>
+              <td>49</td>
+              <td>49</td>
+              <td>65</td>
+              <td>65</td>
+              <td>45</td>
+              <td>318</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/assets/ivysaur.png" alt="Ivysaur" width="50" height="50">
+                <p>Ivysaur</p>
+              </td>
+              <td>60</td>
+              <td>62</td>
+              <td>63</td>
+              <td>80</td>
+              <td>80</td>
+              <td>60</td>
+              <td>405</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/assets/venusaur.png" alt="Venusaur" width="50" height="50">
+                <p>Venusaur</p>
+              </td>
+              <td>80</td>
+              <td>82</td>
+              <td>83</td>
+              <td>100</td>
+              <td>100</td>
+              <td>80</td>
+              <td>525</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/assets/charmander.png" alt="Charmander" width="50" height="50">
+                <p>Charmander</p>
+              </td>
+              <td>39</td>
+              <td>52</td>
+              <td>43</td>
+              <td>60</td>
+              <td>50</td>
+              <td>65</td>
+              <td>309</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/assets/charmeleon.png" alt="Charmeleon" width="50" height="50">
+                <p>Charmeleon</p>
+              </td>
+              <td>58</td>
+              <td>64</td>
+              <td>58</td>
+              <td>80</td>
+              <td>65</td>
+              <td>80</td>
+              <td>405</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/assets/charizard.png" alt="Charizard" width="50" height="50">
+                <p>Charizard</p>
+              </td>
+              <td>78</td>
+              <td>84</td>
+              <td>78</td>
+              <td>109</td>
+              <td>85</td>
+              <td>100</td>
+              <td>534</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/assets/squirtle.png" alt="Squirtle" width="50" height="50">
+                <p>Squirtle</p>
+              </td>
+              <td>44</td>
+              <td>48</td>
+              <td>65</td>
+              <td>50</td>
+              <td>64</td>
+              <td>43</td>
+              <td>314</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/assets/wartortle.png" alt="Wartortle" width="50" height="50">
+                <p>Wartortle</p>
+              </td>
+              <td>59</td>
+              <td>63</td>
+              <td>80</td>
+              <td>65</td>
+              <td>80</td>
+              <td>58</td>
+              <td>405</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/assets/blastoise.png" alt="Blastoise" width="50" height="50">
+                <p>Blastoise</p>
+              </td>
+              <td>79</td>
+              <td>83</td>
+              <td>100</td>
+              <td>85</td>
+              <td>105</td>
+              <td>78</td>
+              <td>530</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="/assets/pikachu.png" alt="Pikachu" width="50" height="50">
+                <p>Pikachu</p>
+              </td>
+              <td>35</td>
+              <td>55</td>
+              <td>40</td>
+              <td>50</td>
+              <td>50</td>
+              <td>90</td>
+              <td>320</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Promedio del equipo</td>
+              <td>58</td>
+              <td>64</td>
+              <td>66</td>
+              <td>74</td>
+              <td>74</td>
+              <td>70</td>
+              <td>407</td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+      <p>Valores base tomados de la Pokédex - la fila de totales resume el equipo completo</p>
+      <section class="statistics-modal__footer">
+        <button type="submit">Cerrar</button>
+      </section>
+    </form>
+  </dialog>
+            <button type="button" commandfor="team-pokemon-modal" command="show-modal">
               Estadísticas
             </button>
 

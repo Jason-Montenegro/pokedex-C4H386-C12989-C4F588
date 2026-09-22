@@ -4,19 +4,80 @@
 
 </head>
 <body>
-  <dialog id="team-pokemon-modal" class="modal" open>
+  <dialog id="team-pokemon-modal" class="modal" closedby="any" open>
     <form method="dialog">
-      <title>Equipo de Pokémon</title>
-      <p>TEXTOTE</p>
-      <p>TEXTOTE</p>
-      <p>TEXTOTE</p>
-      <p>TEXTOTE</p>
-      <button type="submit">Cerrar</button>
+      <header id="modal-title">Team Pokémon</header>
+      <hr>
+      <!-- Here we add the CSS styles for the Pokémon cards and the layout and shape of the modal. -->
+      <section>
+          <p>5 de 6 Pokémon ocupados</p>
+          <div class="card">
+            <div class="pokemon-card">
+              <img class="pokemon-card__image" src="assets/bulbasaur-grande.png" alt="Bulbasaur" width="96" height="96">
+              <span class="pokemon-card__name">Bulbasaur</span>
+              <span class="pokemon-card__number">#001</span>
+              <hr>
+              <button id="remove-pokemon">Quitar</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="pokemon-card">
+              <img class="pokemon-card__image" src="assets/ivysaur-grande.png" alt="Ivysaur" width="96" height="96">
+              <span class="pokemon-card__name">Ivysaur</span>
+              <span class="pokemon-card__number">#002</span>
+              <hr>
+              <button id="remove-pokemon">Quitar</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="pokemon-card">
+              <img class="pokemon-card__image" src="assets/venusaur-grande.png" alt="Venusaur" width="96" height="96">
+              <span class="pokemon-card__name">Venusaur</span>
+              <span class="pokemon-card__number">#003</span>
+              <hr>
+              <button id="remove-pokemon">Quitar</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="pokemon-card">
+              <img class="pokemon-card__image" src="assets/charmander-grande.png" alt="Charmander" width="96" height="96">
+              <span class="pokemon-card__name">Charmander</span>
+              <span class="pokemon-card__number">#004</span>
+              <hr>
+              <button id="remove-pokemon">Quitar</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="pokemon-card">
+              <img class="pokemon-card__image" src="assets/charmeleon-grande.png" alt="Charmeleon" width="96" height="96">
+              <span class="pokemon-card__name">Charmeleon</span>
+              <span class="pokemon-card__number">#005</span>
+              <hr>
+              <button id="remove-pokemon">Quitar</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="pokemon-card">
+              <hr>
+              <button id="add-pokemon">Agregar Pokémon</button>
+              <p>Espacio libre</p>
+            </div>
+          </div>
+      </section>
+      <footer>
+          <button id="add-pokemon">Agregar desde capturados</button>
+          <button id="close-modal">Cerrar</button>
+      </footer>
     </form>
   </dialog>
-  <button id="abrir-modal">Abrir modal</button>
+  <button id="open-modal">Abrir modal</button>
 </body>
 <footer>
 
 </footer>
 </html>
+

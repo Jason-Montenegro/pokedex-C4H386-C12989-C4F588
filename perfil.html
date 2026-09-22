@@ -3,168 +3,641 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfil del entrenador Pokémon">
     <title>Detalle de Entrenador</title>
   </head>
+
   <body>
+
     <header>
+
       <p>
         <a class="logo" href="./">
-          <img src="assets/logo-pokedex.svg" alt="Pokédex" width="156"
+          <img
+            src="assets/logo-pokedex.svg"
+            alt="Pokédex"
+            width="156"
             height="40">
         </a>
       </p>
+
       <nav>
         <ul>
-          <li><a href="./" accesskey="p">Pokédex</a></li>
-          <li><a href="perfil.html">Perfil de entrenador</a></li>
-          <li><a href="acerca-de.html">Acerca de</a></li>
-          <li><a href="configuracion.html">Configuración</a></li>
+          <li>
+            <a href="./" accesskey="p">
+              Pokédex
+            </a>
+          </li>
+
+          <li>
+            <a href="perfil.html" aria-current="page">
+              Perfil de entrenador
+            </a>
+          </li>
+
+          <li>
+            <a href="acerca-de.html">
+              Acerca de
+            </a>
+          </li>
+
+          <li>
+            <a href="configuracion.html">
+              Configuración
+            </a>
+          </li>
         </ul>
       </nav>
-    </header>
-    <main>
-      <article>
-        <section class="profile__container">
-          <img src="./assets/entrenador.png">
-          <section class="profile__details-container">
-            <section class="profile__title">
-              <h1>#0001 Anuel AA</h1>
-              <button>Editar perfil</button>
-            </section>
-            <section class="profile__description">
-              <p>Edad: 33 años</p>
-              <p>Ciudad origen: Carolina</p>
-              <p>Altura: 1.75cm</p>
-              <p>Bio: Anuel AA es un famoso cantante y rapero puertorriqueño de
-                reguetón y trap latino, nacido en Carolina, Puerto Rico, el 26
-                de
-                noviembre de 1992. Su nombre real es Emmanuel Gazmey Santiago.
-                Es
-                considerado uno de los pioneros y máximos exponentes del trap en
-                español.
-              </p>
-            </section>
-          </section>
-        </section>
-        <section class="modal__container">
-          <section class="card__container">
-            <!-- Equipo Pokemon -->
-            <button>Equipo Pokémon</button>
-          </section>
-          <section class="card__container">
-            <!-- Pokemones capturados Pokemon -->
-            <button>Pokémon Capturados</button>
-          </section>
-          <section class="card__container">
-            <section class="card__container">
 
-              <button type="button"
-                commandfor="modal-favoritos"
-                command="show-modal">
-                Favoritos
+    </header>
+
+
+    <main>
+
+      <article>
+
+        <section class="profile__container">
+
+          <img
+            src="./assets/entrenador.png"
+            alt="Entrenador Anuel AA">
+
+          <section class="profile__details-container">
+
+            <section class="profile__title">
+
+              <h1>#0001 Anuel AA</h1>
+
+              <button type="button">
+                Editar perfil
               </button>
 
-              <dialog id="modal-favoritos">
+            </section>
 
-                <h2>Favoritos</h2>
 
-                <p>3 Pokémon marcados como favoritos</p>
+            <section class="profile__description">
 
-                <ul>
+              <dl>
 
-                  <li>
-                    <img src="assets/bulbasaur.png"
-                      alt="Bulbasaur">
+                <dt>Edad</dt>
+                <dd>33 años</dd>
 
-                    <p><strong>#001 Bulbasaur</strong></p>
+                <dt>Ciudad origen</dt>
+                <dd>Carolina</dd>
 
-                    <p>Tipos: Planta, Veneno</p>
+                <dt>Altura</dt>
+                <dd>1.75cm</dd>
 
-                    <a href="detalle-pokemon-bulbasaur.html">
-                      Ver detalle de Bulbasaur
-                    </a>
+              </dl>
 
-                    <button type="button">
-                      Quitar a Bulbasaur de favoritos
-                    </button>
-                  </li>
-
-                  <li>
-                    <img src="assets/charizard.png"
-                      alt="Charizard">
-
-                    <p><strong>#006 Charizard</strong></p>
-
-                    <p>Tipos: Fuego, Volador</p>
-
-                    <a href="detalle-pokemon-charizard.html">
-                      Ver detalle de Charizard
-                    </a>
-
-                    <button type="button">
-                      Quitar a Charizard de favoritos
-                    </button>
-                  </li>
-
-                  <li>
-                    <img src="assets/pikachu.png"
-                      alt="Pikachu">
-
-                    <p><strong>#025 Pikachu</strong></p>
-
-                    <p>Tipo: Eléctrico</p>
-
-                    <a href="detalle-pokemon-pikachu.html">
-                      Ver detalle de Pikachu
-                    </a>
-
-                    <button type="button">
-                      Quitar a Pikachu de favoritos
-                    </button>
-                  </li>
-
-                </ul>
-
-                <button type="button">
-                  Agregar desde capturados
-                </button>
-
-                <button type="button"
-                  commandfor="modal-favoritos"
-                  command="close">
-                  Cerrar
-                </button>
-
-              </dialog>
+              <p>
+                Bio: Anuel AA es un famoso cantante y rapero puertorriqueño de
+                reguetón y trap latino, nacido en Carolina, Puerto Rico, el 26
+                de noviembre de 1992. Su nombre real es Emmanuel Gazmey Santiago.
+                Es considerado uno de los pioneros y máximos exponentes del trap
+                en español.
+              </p>
 
             </section>
-            <button>Favoritos</button>
+
           </section>
-          <section class="card__container">
-            <!-- Estadisticas -->
-            <button>Estadísticas</button>
-          </section>
+
         </section>
+
+
+        <section class="modal__container">
+
+
+          <section class="card__container">
+
+            <!-- Equipo Pokemon -->
+
+            <button type="button">
+              Equipo Pokémon
+            </button>
+
+          </section>
+
+
+          <section class="card__container">
+
+            <!-- Pokémon Capturados -->
+
+            <button
+              type="button"
+              commandfor="modal-capturados"
+              command="show-modal">
+              Pokémon Capturados
+            </button>
+
+
+            <dialog id="modal-capturados">
+
+              <h2>Pokémon capturados</h2>
+
+              <p>
+                Seleccioná los que querés en tu equipo o marcalos como favoritos.
+              </p>
+
+
+              <form>
+
+                <p>
+                  <label for="buscar-pokemon">
+                    Buscar por nombre
+                  </label>
+
+                  <input
+                    type="search"
+                    id="buscar-pokemon"
+                    name="buscar-pokemon">
+                </p>
+
+
+                <p>
+
+                  <label for="filtrar-tipo">
+                    Tipo
+                  </label>
+
+                  <select
+                    id="filtrar-tipo"
+                    name="filtrar-tipo">
+
+                    <option value="">Todos</option>
+                    <option value="planta">Planta</option>
+                    <option value="veneno">Veneno</option>
+                    <option value="fuego">Fuego</option>
+                    <option value="volador">Volador</option>
+                    <option value="agua">Agua</option>
+                    <option value="electrico">Eléctrico</option>
+
+                  </select>
+
+                </p>
+
+
+                <p>
+                  <button type="button">
+                    Buscar
+                  </button>
+                </p>
+
+              </form>
+
+
+              <ul>
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-001"
+                    name="capturados"
+                    value="001"
+                    checked>
+
+                  <label for="capturado-001">
+                    Seleccionar Bulbasaur
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/bulbasaur.png"
+                    alt="Bulbasaur">
+
+                  <p>
+                    <strong>#001 Bulbasaur</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-002"
+                    name="capturados"
+                    value="002">
+
+                  <label for="capturado-002">
+                    Seleccionar Ivysaur
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/ivysaur.png"
+                    alt="Ivysaur">
+
+                  <p>
+                    <strong>#002 Ivysaur</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-003"
+                    name="capturados"
+                    value="003"
+                    checked>
+
+                  <label for="capturado-003">
+                    Seleccionar Venusaur
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/venusaur.png"
+                    alt="Venusaur">
+
+                  <p>
+                    <strong>#003 Venusaur</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-004"
+                    name="capturados"
+                    value="004">
+
+                  <label for="capturado-004">
+                    Seleccionar Charmander
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/charmander.png"
+                    alt="Charmander">
+
+                  <p>
+                    <strong>#004 Charmander</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-005"
+                    name="capturados"
+                    value="005">
+
+                  <label for="capturado-005">
+                    Seleccionar Charmeleon
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/charmeleon.png"
+                    alt="Charmeleon">
+
+                  <p>
+                    <strong>#005 Charmeleon</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-006"
+                    name="capturados"
+                    value="006"
+                    checked>
+
+                  <label for="capturado-006">
+                    Seleccionar Charizard
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/charizard.png"
+                    alt="Charizard">
+
+                  <p>
+                    <strong>#006 Charizard</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-007"
+                    name="capturados"
+                    value="007">
+
+                  <label for="capturado-007">
+                    Seleccionar Squirtle
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/squirtle.png"
+                    alt="Squirtle">
+
+                  <p>
+                    <strong>#007 Squirtle</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-008"
+                    name="capturados"
+                    value="008">
+
+                  <label for="capturado-008">
+                    Seleccionar Wartortle
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/wartortle.png"
+                    alt="Wartortle">
+
+                  <p>
+                    <strong>#008 Wartortle</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-009"
+                    name="capturados"
+                    value="009">
+
+                  <label for="capturado-009">
+                    Seleccionar Blastoise
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/blastoise.png"
+                    alt="Blastoise">
+
+                  <p>
+                    <strong>#009 Blastoise</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-025"
+                    name="capturados"
+                    value="025">
+
+                  <label for="capturado-025">
+                    Seleccionar Pikachu
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/pikachu.png"
+                    alt="Pikachu">
+
+                  <p>
+                    <strong>#025 Pikachu</strong>
+                  </p>
+
+                </li>
+
+              </ul>
+
+
+              <p>
+                3 de 6 seleccionados
+              </p>
+
+
+              <button type="button">
+                Marcar favorito
+              </button>
+
+
+              <button type="button">
+                Agregar al equipo
+              </button>
+
+
+              <button
+                type="button"
+                commandfor="modal-capturados"
+                command="close">
+                Cerrar
+              </button>
+
+            </dialog>
+
+          </section>
+
+
+          <section class="card__container">
+
+            <!-- Favoritos -->
+
+            <button
+              type="button"
+              commandfor="modal-favoritos"
+              command="show-modal">
+              Favoritos
+            </button>
+
+
+            <dialog id="modal-favoritos">
+
+              <h2>Favoritos</h2>
+
+              <p>
+                3 Pokémon marcados como favoritos
+              </p>
+
+
+              <ul>
+
+                <li>
+
+                  <img
+                    src="assets/bulbasaur.png"
+                    alt="Bulbasaur">
+
+                  <p>
+                    <strong>#001 Bulbasaur</strong>
+                  </p>
+
+                  <p>
+                    Tipos: Planta, Veneno
+                  </p>
+
+                  <a href="detalle-pokemon-bulbasaur.html">
+                    Ver detalle de Bulbasaur
+                  </a>
+
+                  <button type="button">
+                    Quitar a Bulbasaur de favoritos
+                  </button>
+
+                </li>
+
+
+                <li>
+
+                  <img
+                    src="assets/charizard.png"
+                    alt="Charizard">
+
+                  <p>
+                    <strong>#006 Charizard</strong>
+                  </p>
+
+                  <p>
+                    Tipos: Fuego, Volador
+                  </p>
+
+                  <a href="detalle-pokemon-charizard.html">
+                    Ver detalle de Charizard
+                  </a>
+
+                  <button type="button">
+                    Quitar a Charizard de favoritos
+                  </button>
+
+                </li>
+
+
+                <li>
+
+                  <img
+                    src="assets/pikachu.png"
+                    alt="Pikachu">
+
+                  <p>
+                    <strong>#025 Pikachu</strong>
+                  </p>
+
+                  <p>
+                    Tipo: Eléctrico
+                  </p>
+
+                  <a href="detalle-pokemon-pikachu.html">
+                    Ver detalle de Pikachu
+                  </a>
+
+                  <button type="button">
+                    Quitar a Pikachu de favoritos
+                  </button>
+
+                </li>
+
+              </ul>
+
+
+              <button type="button">
+                Agregar desde capturados
+              </button>
+
+
+              <button
+                type="button"
+                commandfor="modal-favoritos"
+                command="close">
+                Cerrar
+              </button>
+
+            </dialog>
+
+          </section>
+
+
+          <section class="card__container">
+
+            <!-- Estadisticas -->
+
+            <button type="button">
+              Estadísticas
+            </button>
+
+          </section>
+
+
+        </section>
+
       </article>
+
     </main>
+
+
     <footer>
-      <p><small>Proyecto académico del curso Desarrollo de Aplicaciones Web
-          (<abbr title="Curso de Informática 0137">CI-0137</abbr>),
-          Escuela de Ciencias de la Computación e Informática,
-          <abbr title="Universidad de Costa Rica">UCR</abbr>.
-          <time datetime="2026">2026</time>.</small></p>
 
-      <p><small>Pokémon y sus personajes son marcas registradas de Nintendo,
-          Game Freak y The Pokémon Company. Este sitio no tiene ninguna relación
-          con
-          ellos y se usa únicamente con fines educativos.</small></p>
+      <p>
+        <small>
+          Pokémon y sus nombres son marcas registradas de Nintendo,
+          Creatures Inc. y Game Freak. Este sitio se realizó con fines
+          académicos para el curso CI-0137 Desarrollo de Aplicaciones Web
+          de la Universidad de Costa Rica, sin fines de lucro.
+          Datos e imágenes tomados de PokéAPI.
+        </small>
+      </p>
 
-      <p><small>Ilustraciones y sprites tomados del repositorio
-          <a href="https://github.com/PokeAPI/sprites" target="_blank"
-            rel="noopener">PokeAPI/sprites</a>.
-          Datos de referencia consultados en
-          <a href="https://pokemondb.net/" target="_blank"
-            rel="noopener">Pokémon Database</a>.</small></p>
     </footer>
+
   </body>
 </html>

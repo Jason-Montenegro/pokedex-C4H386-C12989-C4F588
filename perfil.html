@@ -42,13 +42,52 @@
             <section class="profile__title">
 
               <h1>#0001 Anuel AA</h1>
-
-              <button type="button">
+              
+            </section>
+            <section class="modal__container"></section>
+              <button type="button"
+                commandfor="edit-profile-modal"
+                command="show-modal">
                 Editar perfil
               </button>
+              <dialog id="edit-profile-modal" class="modal" closedby="any">
+                <form method="dialog">
+                  <h2 id="modal-title">Editar perfil</h2>
+                  <hr>
+                  <section class="profile__edit-form">
+                    <p>
+                      <label for="nombre">Nombre</label>
+                      <input type="text" id="nombre" name="nombre" value="Anuel AA">
+                    </p>
 
-            </section>
+                    <p>
+                      <label for="edad">Edad</label>
+                      <input type="number" id="edad" name="edad" value="33">
+                    </p>
 
+                    <p>
+                      <label for="ciudad">Ciudad origen</label>
+                      <input type="text" id="ciudad" name="ciudad" value="Carolina">
+                    </p>
+
+                    <p>
+                      <label for="altura">Altura</label>
+                      <input type="text" id="altura" name="altura" value="1.75cm">
+                    </p>
+
+                    <p>
+                      <label for="bio">Bio</label>
+                      <textarea id="bio" name="bio">Anuel AA es un famoso cantante y rapero puertorriqueño de reguetón y trap latino, nacido en Carolina, Puerto Rico, el 26 de noviembre de 1992. Su nombre real es Emmanuel Gazmey Santiago. Es considerado uno de los pioneros y máximos exponentes del trap en español.</textarea>
+                    </p>
+
+                  </section>
+
+                  <section class="profile__edit-form-footer">
+                    <button type="submit">Guardar cambios</button>
+
+                  </section>
+                </form>
+              </dialog>
 
             <section class="profile__description">
 
@@ -179,7 +218,7 @@
             </button>
 
 
-            <dialog id="modal-capturados">
+            <dialog id="modal-capturados" closedby="any">
 
               <h2>Pokémon capturados</h2>
 
@@ -550,7 +589,7 @@
             </button>
 
 
-            <dialog id="modal-favoritos">
+            <dialog id="modal-favoritos" closedby="any">
 
               <h2>Favoritos</h2>
 

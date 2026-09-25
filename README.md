@@ -12,3 +12,6 @@ Se realizaron los casos de puntos extra que mostraba el enunciado, los cuales so
 
 - [ ] Diálogo de Pokémon capturados (wireframe 07).
 - [ ] Formulario para editar el entrenador (Sin wireframe designado).
+
+Link:
+https://jason-montenegro.github.io/pokedex-C4H386-C12989-C4F588/

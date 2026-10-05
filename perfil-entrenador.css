@@ -123,6 +123,91 @@ footer {
   box-shadow: var(--rojo) 0px 11px 20px 3px;
 }
 
+/* Formulario de edición del perfil */
+.profile__edit-modal {
+  width: min(38rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  padding: 1.5rem;
+  overflow-y: auto;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-xl);
+  background: var(--blanco);
+  color: var(--navy);
+  box-shadow: var(--sombra-3);
+}
+
+.profile__edit-modal::backdrop {
+  background: rgba(20, 44, 82, .72);
+}
+
+.profile__edit-form {
+  display: grid;
+  gap: .75rem;
+}
+
+.profile__edit-form p {
+  display: grid;
+  gap: .35rem;
+  margin: 0;
+}
+
+.profile__edit-form label {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.profile__edit-form input,
+.profile__edit-form textarea {
+  width: 100%;
+  padding: .65rem .8rem;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  background: var(--blanco);
+  color: var(--navy);
+  font: inherit;
+}
+
+.profile__edit-form textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.profile__edit-form-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .65rem;
+  margin-top: 1rem;
+}
+
+.profile__edit-form-footer button {
+  padding: .55rem 1rem;
+  border: 2px solid var(--azul);
+  border-radius: var(--radio-pastilla);
+  background: var(--azul);
+  color: var(--blanco);
+  font: 700 .95rem var(--fuente-texto);
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.profile__edit-form-footer button:hover,
+.profile__edit-form-footer button:focus-visible {
+  transform: translateY(-2px);
+  background: var(--azul-borde);
+}
+
+.profile__edit-form-footer .profile__edit-cancel {
+  border-color: var(--linea);
+  background: var(--blanco);
+  color: var(--navy);
+}
+
+.profile__edit-form-footer .profile__edit-cancel:hover,
+.profile__edit-form-footer .profile__edit-cancel:focus-visible {
+  background: var(--crema);
+}
+
 /* general modal cards styles */
 
 /* grid */

@@ -1,0 +1,178 @@
+/* general container */
+.statistics-modal {
+  width: min(56rem, 92vw);
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: var(--radio-xl);
+  box-shadow: var(--sombra-3);
+  background: var(--blanco);
+  color: var(--navy);
+}
+
+.statistics-modal::backdrop {
+  background: rgba(20, 44, 82, .55);
+}
+
+.statistics-modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* modal header */
+.statistics-modal__header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--linea);
+  box-shadow: none;
+}
+
+.statistics-modal__icon {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.85rem;
+  background: url("assets/statistics-icon.svg") no-repeat center / 1.75rem;
+  background-color: var(--verde);
+  border-radius: var(--radio);
+  box-shadow: 0 11px 20px 3px var(--verde);
+}
+
+.statistics-modal__title {
+  flex: 1;
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* body */
+.statistics-modal__body {
+  padding: 1.5rem 2rem;
+}
+
+.statistics-modal__description {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+
+/* small note below table */
+.statistics-modal__note {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
+/* table */
+.statistics-modal__table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-1);
+}
+
+.statistics-modal__table th,
+.statistics-modal__table td {
+  padding: 0.85rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.statistics-modal__table th:first-child,
+.statistics-modal__table td:first-child {
+  text-align: left;
+}
+
+/* table head */
+.statistics-modal__table-head th {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: var(--navy);
+  background: var(--crema);
+}
+
+/* table body */
+.statistics-modal__table-body tr:nth-child(even) {
+  background: var(--sprite-raya);
+}
+
+.statistics-modal__table-body tr:nth-child(odd) {
+  background: var(--blanco);
+}
+
+.statistics-modal__pokemon {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  white-space: nowrap;
+}
+
+.statistics-modal__pokemon-image {
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.statistics-modal__pokemon-name {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* table footer */
+.statistics-modal__total {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  padding: 0.35rem 0.75rem;
+  font-weight: 700;
+  color: var(--blanco);
+  background: var(--navy);
+  border-radius: var(--radio-pastilla);
+}
+
+.statistics-modal__table-row--average {
+  background: var(--amarillo);
+  font-weight: 700;
+}
+
+.statistics-modal__average-total {
+  font-size: 1.1rem;
+}
+
+/* modal footer */
+.statistics-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--linea);
+  border-radius: 0 0 var(--radio-xl) var(--radio-xl);
+  box-shadow: none;
+}
+
+/* responsive design */
+@media (max-width: 768px) {
+  .statistics-modal {
+    width: 94vw;
+  }
+
+  .statistics-modal__header,
+  .statistics-modal__body,
+  .statistics-modal__footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .statistics-modal__body {
+    overflow-x: auto;
+  }
+}

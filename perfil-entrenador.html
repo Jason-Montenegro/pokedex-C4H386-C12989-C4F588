@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfil del entrenador Pokémon">
+    <title>Detalle de Entrenador</title>
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="perfil-entrenador.css">
+    <link rel="stylesheet" href="perfil-entrenador.estadisticas.css">
+    <link rel="stylesheet" href="modal-team-pokemon.css">
+    <link rel="stylesheet" href="modal-favoritos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap">
+  </head>
+  <body>
+    <header>
+      <p>
+        <a class="logo" href="./">
+          <img src="assets/logo-pokedex.svg" alt="Pokédex" width="156" height="40">
+        </a>
+      </p>
+
+      <!--
+        Menú principal del sitio. Se usa <nav> porque es un bloque de navegación,
+        y adentro una lista <ul> (no ordenada) porque el orden de estos enlaces
+        no importa para el significado, solo para el diseño.
+        Cada enlace <a> lleva a otra página (cambia la URL); no confundir con
+        un <button>, que sirve para ejecutar una acción en la misma página
+        (como enviar un formulario), no para navegar.
+      -->
+      <nav>
+        <ul>
+          <li><a href="./" accesskey="p">Pokédex</a></li>
+          <li><a href="perfil-entrenador.html" aria-current="page">Perfil de entrenador</a></li>
+          <li><a href="acerca-de.html">Acerca de</a></li>
+          <li><a href="configuracion.html">Configuración</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <article class="profile">
+        <section class="profile-container">
+          <img
+            class="profile-image"
+            src="./assets/foto-entrenador.svg"
+            alt="Entrenador Anuel AA"
+          >
+          <section class="profile-details-container">
+            <dialog id="edit-profile-modal" class="modal profile__edit-modal" closedby="any">
+              <form method="dialog">
+                <h2 id="modal-title">Editar perfil</h2>
+                <hr>
+                <section class="profile__edit-form">
+                  <p>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" value="Anuel AA">
+                  </p>
+
+                  <p>
+                    <label for="edad">Edad</label>
+                    <input type="number" id="edad" name="edad" value="33">
+                  </p>
+
+                  <p>
+                    <label for="ciudad">Ciudad origen</label>
+                    <input type="text" id="ciudad" name="ciudad" value="Carolina">
+                  </p>
+
+                  <p>
+                    <label for="altura">Altura</label>
+                    <input type="text" id="altura" name="altura" value="1.75cm">
+                  </p>
+
+                  <p>
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio">Anuel AA es un famoso cantante y rapero puertorriqueño de reguetón y trap latino, nacido en Carolina, Puerto Rico, el 26 de noviembre de 1992. Su nombre real es Emmanuel Gazmey Santiago. Es considerado uno de los pioneros y máximos exponentes del trap en español.</textarea>
+                  </p>
+                </section>
+
+                <section class="profile__edit-form-footer">
+                  <button class="profile__edit-save" type="submit" value="save">Guardar cambios</button>
+                  <button class="profile__edit-cancel" type="submit" value="cancel">Cancelar</button>
+                </section>
+              </form>
+            </dialog>
+            <section class="profile-info">
+              <h1 class="profile-info__title">Anuel AA</h1>
+              <dl class="profile-info__details">
+                <dd>33 años</dd>
+                <dd>Carolina</dd>
+                <dd>1.75cm</dd>
+              </dl>
+              <p class="profile-info__description">
+                Anuel AA es un famoso cantante y rapero puertorriqueño de
+                reguetón y trap latino, nacido en Carolina, Puerto Rico, el 26
+                de noviembre de 1992. Su nombre real es Emmanuel Gazmey Santiago.
+                Es considerado uno de los pioneros y máximos exponentes del trap
+                en español.
+              </p>
+            </section>
+            <button
+              class="profile-info__edit-button boton boton--rojo"
+              type="button"
+              commandfor="edit-profile-modal"
+              command="show-modal">
+              Editar perfil
+            </button>
+          </section>
+        </section>
+        <section class="modal__container">
+          <section class="card-container team-pokemon">
+            <!-- Equipo Pokemon -->
+            <article class="card-pokemon__header">
+              <img class="card-pokemon__image team-pokemon__image" src="assets/pokemon-team-icon.svg" alt="Ícono de equipo Pokémon">
+              <section class="card-pokemon__content">
+                <div class="card-pokemon__title">
+                  <h2>Equipo Pokémon</h2>
+                  <p>5 de 6 Pokémon ocupados</p>
+                </div>
+                <button
+                class="card-container-button"
+                type="button"
+                commandfor="team-pokemon-modal"
+                command="show-modal"></button>
+              </section>
+            </article>
+
+            <dialog id="team-pokemon-modal" class="team-modal" closedby="any" aria-labelledby="team-modal-title">
+              <form class="team-modal__form" method="dialog">
+                <header class="team-modal__header">
+                  <h2 class="team-modal__title" id="team-modal-title">Team Pokémon</h2>
+                  <button class="team-modal__close" type="submit">
+                    <span class="team-modal__visually-hidden">Cerrar modal</span>
+                  </button>
+                </header>
+
+                <section class="team-modal__content" aria-label="Integrantes del equipo">
+                  <p class="team-modal__summary">5 de 6 espacios ocupados</p>
+                  <ul class="team-modal__grid">
+                    <li class="team-modal__card">
+                      <span class="team-modal__number">#001</span>
+                      <img class="team-modal__pokemon" src="assets/bulbasaur-grande.png" alt="Bulbasaur" width="96" height="96">
+                      <h3 class="team-modal__pokemon-name">Bulbasaur</h3>
+                      <ul class="team-modal__types" aria-label="Tipos">
+                        <li class="team-modal__type team-modal__type--planta">Planta</li>
+                        <li class="team-modal__type team-modal__type--veneno">Veneno</li>
+                      </ul>
+                      <button class="team-modal__remove" type="button" aria-label="Quitar a Bulbasaur del equipo">Quitar</button>
+                    </li>
+                    <li class="team-modal__card">
+                      <span class="team-modal__number">#002</span>
+                      <img class="team-modal__pokemon" src="assets/ivysaur-grande.png" alt="Ivysaur" width="96" height="96">
+                      <h3 class="team-modal__pokemon-name">Ivysaur</h3>
+                      <ul class="team-modal__types" aria-label="Tipos">
+                        <li class="team-modal__type team-modal__type--planta">Planta</li>
+                        <li class="team-modal__type team-modal__type--veneno">Veneno</li>
+                      </ul>
+                      <button class="team-modal__remove" type="button" aria-label="Quitar a Ivysaur del equipo">Quitar</button>
+                    </li>
+                    <li class="team-modal__card">
+                      <span class="team-modal__number">#004</span>
+                      <img class="team-modal__pokemon" src="assets/charmander-grande.png" alt="Charmander" width="96" height="96">
+                      <h3 class="team-modal__pokemon-name">Charmander</h3>
+                      <ul class="team-modal__types" aria-label="Tipos">
+                        <li class="team-modal__type team-modal__type--fuego">Fuego</li>
+                      </ul>
+                      <button class="team-modal__remove" type="button" aria-label="Quitar a Charmander del equipo">Quitar</button>
+                    </li>
+                    <li class="team-modal__card">
+                      <span class="team-modal__number">#007</span>
+                      <img class="team-modal__pokemon" src="assets/squirtle-grande.png" alt="Squirtle" width="96" height="96">
+                      <h3 class="team-modal__pokemon-name">Squirtle</h3>
+                      <ul class="team-modal__types" aria-label="Tipos">
+                        <li class="team-modal__type team-modal__type--agua">Agua</li>
+                      </ul>
+                      <button class="team-modal__remove" type="button" aria-label="Quitar a Squirtle del equipo">Quitar</button>
+                    </li>
+                    <li class="team-modal__card">
+                      <span class="team-modal__number">#025</span>
+                      <img class="team-modal__pokemon" src="assets/pikachu-grande.png" alt="Pikachu" width="96" height="96">
+                      <h3 class="team-modal__pokemon-name">Pikachu</h3>
+                      <ul class="team-modal__types" aria-label="Tipos">
+                        <li class="team-modal__type team-modal__type--electrico">Eléctrico</li>
+                      </ul>
+                      <button class="team-modal__remove" type="button" aria-label="Quitar a Pikachu del equipo">Quitar</button>
+                    </li>
+                    <li class="team-modal__card team-modal__card--empty">
+                      <button class="team-modal__add-empty" type="button" aria-label="Agregar un Pokémon al espacio libre">
+                        <span>Espacio libre</span>
+                      </button>
+                    </li>
+                  </ul>
+                </section>
+
+                <footer class="team-modal__footer">
+                  <button class="team-modal__add" type="button">Agregar desde capturados</button>
+                  <button class="team-modal__cancel" type="submit">Cerrar</button>
+                </footer>
+              </form>
+            </dialog>
+
+          </section>
+
+          <section class="card-container catched-pokemon">
+            <!-- Pokémon Capturados -->
+            <article class="card-pokemon__header">
+              <img class="card-pokemon__image catched-pokemon__image" src="assets/catched-pokemon-icon.svg" alt="">
+              <section class="card-pokemon__content">
+                <div class="card-pokemon__title">
+                  <h2>Pokemon Capturados</h2>
+                  <p>24 Pokémon en tu colección</p>
+                </div>
+                <button
+                class="card-container-button"
+                type="button"
+                commandfor="modal-capturados"
+                command="show-modal"></button>
+              </section>
+            </article>
+
+            <dialog id="modal-capturados" closedby="any">
+
+              <h2>Pokémon capturados</h2>
+
+              <p>
+                Seleccioná los que querés en tu equipo o marcalos como favoritos.
+              </p>
+
+
+              <form>
+
+                <p>
+                  <label for="buscar-pokemon">
+                    Buscar por nombre
+                  </label>
+
+                  <input
+                    type="search"
+                    id="buscar-pokemon"
+                    name="buscar-pokemon">
+                </p>
+
+
+                <p>
+
+                  <label for="filtrar-tipo">
+                    Tipo
+                  </label>
+
+                  <select
+                    id="filtrar-tipo"
+                    name="filtrar-tipo">
+
+                    <option value="">Todos</option>
+                    <option value="planta">Planta</option>
+                    <option value="veneno">Veneno</option>
+                    <option value="fuego">Fuego</option>
+                    <option value="volador">Volador</option>
+                    <option value="agua">Agua</option>
+                    <option value="electrico">Eléctrico</option>
+
+                  </select>
+
+                </p>
+
+
+                <p>
+                  <button type="button">
+                    Buscar
+                  </button>
+                </p>
+
+              </form>
+
+
+              <ul>
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-001"
+                    name="capturados"
+                    value="001"
+                    checked>
+
+                  <label for="capturado-001">
+                    Seleccionar Bulbasaur
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/bulbasaur.png"
+                    alt="Bulbasaur">
+
+                  <p>
+                    <strong>#001 Bulbasaur</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-002"
+                    name="capturados"
+                    value="002">
+
+                  <label for="capturado-002">
+                    Seleccionar Ivysaur
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/ivysaur.png"
+                    alt="Ivysaur">
+
+                  <p>
+                    <strong>#002 Ivysaur</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-003"
+                    name="capturados"
+                    value="003"
+                    checked>
+
+                  <label for="capturado-003">
+                    Seleccionar Venusaur
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/venusaur.png"
+                    alt="Venusaur">
+
+                  <p>
+                    <strong>#003 Venusaur</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-004"
+                    name="capturados"
+                    value="004">
+
+                  <label for="capturado-004">
+                    Seleccionar Charmander
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/charmander.png"
+                    alt="Charmander">
+
+                  <p>
+                    <strong>#004 Charmander</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-005"
+                    name="capturados"
+                    value="005">
+
+                  <label for="capturado-005">
+                    Seleccionar Charmeleon
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/charmeleon.png"
+                    alt="Charmeleon">
+
+                  <p>
+                    <strong>#005 Charmeleon</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-006"
+                    name="capturados"
+                    value="006"
+                    checked>
+
+                  <label for="capturado-006">
+                    Seleccionar Charizard
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/charizard.png"
+                    alt="Charizard">
+
+                  <p>
+                    <strong>#006 Charizard</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-007"
+                    name="capturados"
+                    value="007">
+
+                  <label for="capturado-007">
+                    Seleccionar Squirtle
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/squirtle.png"
+                    alt="Squirtle">
+
+                  <p>
+                    <strong>#007 Squirtle</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-008"
+                    name="capturados"
+                    value="008">
+
+                  <label for="capturado-008">
+                    Seleccionar Wartortle
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/wartortle.png"
+                    alt="Wartortle">
+
+                  <p>
+                    <strong>#008 Wartortle</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-009"
+                    name="capturados"
+                    value="009">
+
+                  <label for="capturado-009">
+                    Seleccionar Blastoise
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/blastoise.png"
+                    alt="Blastoise">
+
+                  <p>
+                    <strong>#009 Blastoise</strong>
+                  </p>
+
+                </li>
+
+
+                <li>
+
+                  <input
+                    type="checkbox"
+                    id="capturado-025"
+                    name="capturados"
+                    value="025">
+
+                  <label for="capturado-025">
+                    Seleccionar Pikachu
+                  </label>
+
+                  <img
+                    src="assets/favorite-icon.svg"
+                    alt="Ícono de favorito">
+
+                  <img
+                    src="assets/pikachu.png"
+                    alt="Pikachu">
+
+                  <p>
+                    <strong>#025 Pikachu</strong>
+                  </p>
+
+                </li>
+
+              </ul>
+
+
+              <p>
+                3 de 6 seleccionados
+              </p>
+
+
+              <button type="button">
+                Marcar favorito
+              </button>
+
+
+              <button type="button">
+                Agregar al equipo
+              </button>
+
+
+              <button
+                type="button"
+                commandfor="modal-capturados"
+                command="close">
+                Cerrar
+              </button>
+
+            </dialog>
+
+          </section>
+
+          <section class="card-container favorites-pokemon">
+            <!-- Favoritos -->
+            <article class="card-pokemon__header">
+              <img class="card-pokemon__image favorites-pokemon__image" src="assets/favorite-star-icon.svg" alt="Ícono de favorito">
+              <section class="card-pokemon__content">
+                <div class="card-pokemon__title">
+                  <h2>Favoritos</h2>
+                  <p>4 Pokémon marcados</p>
+                </div>
+                <button
+                  class="card-container-button"
+                  type="button"
+                  commandfor="modal-favoritos"
+                  command="show-modal"></button>
+              </section>
+            </article>
+
+            <dialog id="modal-favoritos" class="favorites-modal" closedby="any" aria-labelledby="favorites-modal-title">
+              <form class="favorites-modal__form" method="dialog">
+                <header class="favorites-modal__header">
+                  <h2 class="favorites-modal__title" id="favorites-modal-title">Favoritos</h2>
+                  <button class="favorites-modal__close" type="submit">
+                    <span class="favorites-modal__visually-hidden">Cerrar modal</span>
+                  </button>
+                </header>
+
+                <section class="favorites-modal__content" aria-label="Pokémon favoritos">
+                  <p class="favorites-modal__summary">4 Pokémon marcados como favoritos</p>
+
+                  <ul class="favorites-modal__list">
+                    <li>
+                      <article class="favorites-modal__item">
+                      <section class="favorites-modal__pokemon-info">
+                        <span class="favorites-modal__favorite-mark" aria-hidden="true"></span>
+                        <span class="favorites-modal__sprite-box">
+                          <img class="favorites-modal__pokemon-image" src="assets/bulbasaur.png" alt="Bulbasaur" width="56" height="56">
+                        </span>
+                        <div class="favorites-modal__pokemon-data">
+                          <div class="favorites-modal__name-row">
+                            <h3 class="favorites-modal__pokemon-name">Bulbasaur</h3>
+                            <span class="favorites-modal__number">#001</span>
+                          </header>
+                          <ul class="favorites-modal__types" aria-label="Tipos">
+                            <li class="favorites-modal__type favorites-modal__type--planta">Planta</li>
+                            <li class="favorites-modal__type favorites-modal__type--veneno">Veneno</li>
+                          </ul>
+                        </div>
+                      </section>
+                      <div class="favorites-modal__actions">
+                        <a class="favorites-modal__detail" href="detalle-pokemon-bulbasaur.html">Ver detalle</a>
+                        <button class="favorites-modal__remove" type="button" aria-label="Quitar a Bulbasaur de favoritos">Quitar de favoritos</button>
+                      </footer>
+                      </article>
+                    </li>
+
+                    <li>
+                      <article class="favorites-modal__item">
+                      <section class="favorites-modal__pokemon-info">
+                        <span class="favorites-modal__favorite-mark" aria-hidden="true"></span>
+                        <span class="favorites-modal__sprite-box">
+                          <img class="favorites-modal__pokemon-image" src="assets/charmander.png" alt="Charmander" width="56" height="56">
+                        </span>
+                        <div class="favorites-modal__pokemon-data">
+                          <div class="favorites-modal__name-row">
+                            <h3 class="favorites-modal__pokemon-name">Charmander</h3>
+                            <span class="favorites-modal__number">#004</span>
+                          </header>
+                          <ul class="favorites-modal__types" aria-label="Tipos">
+                            <li class="favorites-modal__type favorites-modal__type--fuego">Fuego</li>
+                          </ul>
+                        </div>
+                      </section>
+                      <div class="favorites-modal__actions">
+                        <a class="favorites-modal__detail" href="detalle-pokemon-charmander.html">Ver detalle</a>
+                        <button class="favorites-modal__remove" type="button" aria-label="Quitar a Charmander de favoritos">Quitar de favoritos</button>
+                      </footer>
+                      </article>
+                    </li>
+
+                    <li>
+                      <article class="favorites-modal__item">
+                      <section class="favorites-modal__pokemon-info">
+                        <span class="favorites-modal__favorite-mark" aria-hidden="true"></span>
+                        <span class="favorites-modal__sprite-box">
+                          <img class="favorites-modal__pokemon-image" src="assets/squirtle.png" alt="Squirtle" width="56" height="56">
+                        </span>
+                        <div class="favorites-modal__pokemon-data">
+                          <div class="favorites-modal__name-row">
+                            <h3 class="favorites-modal__pokemon-name">Squirtle</h3>
+                            <span class="favorites-modal__number">#007</span>
+                          </header>
+                          <ul class="favorites-modal__types" aria-label="Tipos">
+                            <li class="favorites-modal__type favorites-modal__type--agua">Agua</li>
+                          </ul>
+                        </div>
+                      </section>
+                      <div class="favorites-modal__actions">
+                        <a class="favorites-modal__detail" href="detalle-pokemon-squirtle.html">Ver detalle</a>
+                        <button class="favorites-modal__remove" type="button" aria-label="Quitar a Squirtle de favoritos">Quitar de favoritos</button>
+                      </footer>
+                      </article>
+                    </li>
+
+                    <li>
+                      <article class="favorites-modal__item">
+                      <section class="favorites-modal__pokemon-info">
+                        <span class="favorites-modal__favorite-mark" aria-hidden="true"></span>
+                        <span class="favorites-modal__sprite-box">
+                          <img class="favorites-modal__pokemon-image" src="assets/pikachu.png" alt="Pikachu" width="56" height="56">
+                        </span>
+                        <div class="favorites-modal__pokemon-data">
+                          <div class="favorites-modal__name-row">
+                            <h3 class="favorites-modal__pokemon-name">Pikachu</h3>
+                            <span class="favorites-modal__number">#025</span>
+                          </header>
+                          <ul class="favorites-modal__types" aria-label="Tipos">
+                            <li class="favorites-modal__type favorites-modal__type--electrico">Eléctrico</li>
+                          </ul>
+                        </div>
+                      </section>
+                      <div class="favorites-modal__actions">
+                        <a class="favorites-modal__detail" href="detalle-pokemon-pikachu.html">Ver detalle</a>
+                        <button class="favorites-modal__remove" type="button" aria-label="Quitar a Pikachu de favoritos">Quitar de favoritos</button>
+                      </footer>
+                      </article>
+                    </li>
+                  </ul>
+                </section>
+
+                <footer class="favorites-modal__footer">
+                  <button class="favorites-modal__add" type="button">Agregar desde capturados</button>
+                  <button class="favorites-modal__cancel" type="submit">Cerrar</button>
+                </footer>
+              </form>
+            </dialog>
+          </section>
+
+          <section class="card-container statistics-pokemon">
+            <!-- Estadísticas -->
+            <article class="card-pokemon__header">
+              <img class="card-pokemon__image statistics-pokemon__image" src="assets/statistics-icon.svg" alt="Estadísticas de Pokémon">
+              <section class="card-pokemon__content">
+                <div class="card-pokemon__title">
+                  <h2>Estadísticas</h2>
+                  <p>Comparativa de tu equipo</p>
+                </div>
+                <button
+                class="card-container-button"
+                type="button"
+                commandfor="statistics-modal"
+                command="show-modal"></button>
+              </section>
+            </article>
+
+            <dialog id="statistics-modal" class="statistics-modal" closedby="any">
+              <form method="dialog" class="statistics-modal__form">
+                <section class="statistics-modal__header">
+                  <img class="statistics-modal__icon" src="assets/statistics-icon.svg" alt="">
+                  <h2 class="statistics-modal__title">Estadísticas</h2>
+                </section>
+                <section class="statistics-modal__body">
+                  <p class="statistics-modal__description">Comparativa de los Pokémon de tu equipo</p>
+                  <table class="statistics-modal__table">
+                    <thead class="statistics-modal__table-head">
+                      <tr>
+                        <th>Pokémon</th>
+                        <th>PS</th>
+                        <th>ATQ</th>
+                        <th>DEF</th>
+                        <th>AT.ESP</th>
+                        <th>DEF.ESP</th>
+                        <th>VEL</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="statistics-modal__table-body">
+                      <tr>
+                        <td class="statistics-modal__pokemon">
+                          <img class="statistics-modal__pokemon-image" src="assets/bulbasaur.png" alt="" width="40" height="40">
+                          <span class="statistics-modal__pokemon-name">Bulbasaur</span>
+                        </td>
+                        <td>45</td>
+                        <td>49</td>
+                        <td>49</td>
+                        <td>65</td>
+                        <td>65</td>
+                        <td>45</td>
+                        <td><span class="statistics-modal__total">318</span></td>
+                      </tr>
+                      <tr>
+                        <td class="statistics-modal__pokemon">
+                          <img class="statistics-modal__pokemon-image" src="assets/ivysaur.png" alt="" width="40" height="40">
+                          <span class="statistics-modal__pokemon-name">Ivysaur</span>
+                        </td>
+                        <td>60</td>
+                        <td>62</td>
+                        <td>63</td>
+                        <td>80</td>
+                        <td>80</td>
+                        <td>60</td>
+                        <td><span class="statistics-modal__total">405</span></td>
+                      </tr>
+                      <tr>
+                        <td class="statistics-modal__pokemon">
+                          <img class="statistics-modal__pokemon-image" src="assets/charmander.png" alt="" width="40" height="40">
+                          <span class="statistics-modal__pokemon-name">Charmander</span>
+                        </td>
+                        <td>39</td>
+                        <td>52</td>
+                        <td>43</td>
+                        <td>60</td>
+                        <td>50</td>
+                        <td>65</td>
+                        <td><span class="statistics-modal__total">309</span></td>
+                      </tr>
+                      <tr>
+                        <td class="statistics-modal__pokemon">
+                          <img class="statistics-modal__pokemon-image" src="assets/squirtle.png" alt="" width="40" height="40">
+                          <span class="statistics-modal__pokemon-name">Squirtle</span>
+                        </td>
+                        <td>44</td>
+                        <td>48</td>
+                        <td>65</td>
+                        <td>50</td>
+                        <td>64</td>
+                        <td>43</td>
+                        <td><span class="statistics-modal__total">314</span></td>
+                      </tr>
+                      <tr>
+                        <td class="statistics-modal__pokemon">
+                          <img class="statistics-modal__pokemon-image" src="assets/pikachu.png" alt="" width="40" height="40">
+                          <span class="statistics-modal__pokemon-name">Pikachu</span>
+                        </td>
+                        <td>35</td>
+                        <td>55</td>
+                        <td>40</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td>90</td>
+                        <td><span class="statistics-modal__total">320</span></td>
+                      </tr>
+                    </tbody>
+                    <tfoot class="statistics-modal__table-foot">
+                      <tr class="statistics-modal__table-row--average">
+                        <td>Promedio del equipo</td>
+                        <td>45</td>
+                        <td>53</td>
+                        <td>52</td>
+                        <td>61</td>
+                        <td>62</td>
+                        <td>61</td>
+                        <td class="statistics-modal__average-total">333</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                  <p class="statistics-modal__note">Valores base tomados de la Pokédex · la fila de totales resume el equipo completo.</p>
+                </section>
+                <section class="statistics-modal__footer">
+                  <button class="statistics-modal__close-button boton boton--primario" type="submit">Cerrar</button>
+                </section>
+              </form>
+            </dialog>
+          </section>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <p><small>Proyecto académico del curso Desarrollo de Aplicaciones Web
+          (<abbr title="Curso de Informática 0137">CI-0137</abbr>),
+          Escuela de Ciencias de la Computación e Informática,
+          <abbr title="Universidad de Costa Rica">UCR</abbr>.
+          <time datetime="2026">2026</time>.</small></p>
+
+      <p><small>Pokémon y sus personajes son marcas registradas de Nintendo,
+          Game Freak y The Pokémon Company. Este sitio no tiene ninguna relación con
+          ellos y se usa únicamente con fines educativos.</small></p>
+
+      <p><small>Ilustraciones y sprites tomados del repositorio
+          <a href="https://github.com/PokeAPI/sprites" target="_blank" rel="noopener">PokeAPI/sprites</a>.
+          Datos de referencia consultados en
+          <a href="https://pokemondb.net/" target="_blank" rel="noopener">Pokémon Database</a>.</small></p>
+    </footer>
+  </body>
+</html>

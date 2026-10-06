@@ -1,71 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Favoritos del perfil de entrenador">
     <title>Favoritos</title>
-</head>
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal-favoritos.css">
+  </head>
+  <body>
+    <dialog id="modal-favoritos" class="favorites-modal" open aria-labelledby="favorites-modal-title">
+      <form class="favorites-modal__form" method="dialog">
+        <header class="favorites-modal__header">
+          <h1 class="favorites-modal__title" id="favorites-modal-title">Favoritos</h1>
+          <button class="favorites-modal__close" type="submit">
+            <span class="favorites-modal__visually-hidden">Cerrar modal</span>
+          </button>
+        </header>
 
-<body>
+        <section class="favorites-modal__content" aria-label="Pokémon favoritos">
+          <p class="favorites-modal__summary">4 Pokémon marcados como favoritos</p>
+          <ul class="favorites-modal__list">
+            <li>
+              <article class="favorites-modal__item">
+              <section class="favorites-modal__pokemon-info">
+                <span class="favorites-modal__favorite-mark" aria-hidden="true"></span>
+                <span class="favorites-modal__sprite-box">
+                  <img class="favorites-modal__pokemon-image" src="assets/bulbasaur.png" alt="Bulbasaur" width="56" height="56">
+                </span>
+                <div class="favorites-modal__pokemon-data">
+                  <div class="favorites-modal__name-row">
+                    <h2 class="favorites-modal__pokemon-name">Bulbasaur</h2>
+                    <span class="favorites-modal__number">#001</span>
+                  </div>
+                  <ul class="favorites-modal__types" aria-label="Tipos">
+                    <li class="favorites-modal__type favorites-modal__type--planta">Planta</li>
+                    <li class="favorites-modal__type favorites-modal__type--veneno">Veneno</li>
+                  </ul>
+                </div>
+              </section>
+              <div class="favorites-modal__actions">
+                <a class="favorites-modal__detail" href="detalle-pokemon-bulbasaur.html">Ver detalle</a>
+                <button class="favorites-modal__remove" type="button" aria-label="Quitar a Bulbasaur de favoritos">Quitar de favoritos</button>
+              </div>
+              </article>
+            </li>
 
-    <dialog id="modal-favoritos" open>
-        <form method="dialog">
-            <h1>Favoritos</h1>
-            <p>3 Pokémon marcados como favoritos</p>
-            <ul>
-                <li>
-                    <img src="assets/bulbasaur.png"
-                         alt="Bulbasaur">
-                    <p><strong>#001 Bulbasaur</strong></p>
-                    <p>Tipos: Planta, Veneno</p>
-                    <a href="detalle-pokemon-bulbasaur.html">
-                        Ver detalle de Bulbasaur
-                    </a>
-                    <button type="button">
-                        Quitar a Bulbasaur de favoritos
-                    </button>
-                </li>
+            <li>
+              <article class="favorites-modal__item">
+              <section class="favorites-modal__pokemon-info">
+                <span class="favorites-modal__favorite-mark" aria-hidden="true"></span>
+                <span class="favorites-modal__sprite-box">
+                  <img class="favorites-modal__pokemon-image" src="assets/charmander.png" alt="Charmander" width="56" height="56">
+                </span>
+                <div class="favorites-modal__pokemon-data">
+                  <div class="favorites-modal__name-row">
+                    <h2 class="favorites-modal__pokemon-name">Charmander</h2>
+                    <span class="favorites-modal__number">#004</span>
+                  </div>
+                  <ul class="favorites-modal__types" aria-label="Tipos">
+                    <li class="favorites-modal__type favorites-modal__type--fuego">Fuego</li>
+                  </ul>
+                </div>
+              </section>
+              <div class="favorites-modal__actions">
+                <a class="favorites-modal__detail" href="detalle-pokemon-charmander.html">Ver detalle</a>
+                <button class="favorites-modal__remove" type="button" aria-label="Quitar a Charmander de favoritos">Quitar de favoritos</button>
+              </div>
+              </article>
+            </li>
 
+            <li>
+              <article class="favorites-modal__item">
+              <section class="favorites-modal__pokemon-info">
+                <span class="favorites-modal__favorite-mark" aria-hidden="true"></span>
+                <span class="favorites-modal__sprite-box">
+                  <img class="favorites-modal__pokemon-image" src="assets/squirtle.png" alt="Squirtle" width="56" height="56">
+                </span>
+                <div class="favorites-modal__pokemon-data">
+                  <div class="favorites-modal__name-row">
+                    <h2 class="favorites-modal__pokemon-name">Squirtle</h2>
+                    <span class="favorites-modal__number">#007</span>
+                  </div>
+                  <ul class="favorites-modal__types" aria-label="Tipos">
+                    <li class="favorites-modal__type favorites-modal__type--agua">Agua</li>
+                  </ul>
+                </div>
+              </section>
+              <div class="favorites-modal__actions">
+                <a class="favorites-modal__detail" href="detalle-pokemon-squirtle.html">Ver detalle</a>
+                <button class="favorites-modal__remove" type="button" aria-label="Quitar a Squirtle de favoritos">Quitar de favoritos</button>
+              </div>
+              </article>
+            </li>
 
-                <li>
-                    <img src="assets/charizard.png"
-                         alt="Charizard">
-                    <p><strong>#006 Charizard</strong></p>
-                    <p>Tipos: Fuego, Volador</p>
-                    <a href="detalle-pokemon-charizard.html">
-                        Ver detalle de Charizard
-                    </a>
-                    <button type="button">
-                        Quitar a Charizard de favoritos
-                    </button>
-                </li>
+            <li>
+              <article class="favorites-modal__item">
+              <section class="favorites-modal__pokemon-info">
+                <span class="favorites-modal__favorite-mark" aria-hidden="true"></span>
+                <span class="favorites-modal__sprite-box">
+                  <img class="favorites-modal__pokemon-image" src="assets/pikachu.png" alt="Pikachu" width="56" height="56">
+                </span>
+                <div class="favorites-modal__pokemon-data">
+                  <div class="favorites-modal__name-row">
+                    <h2 class="favorites-modal__pokemon-name">Pikachu</h2>
+                    <span class="favorites-modal__number">#025</span>
+                  </div>
+                  <ul class="favorites-modal__types" aria-label="Tipos">
+                    <li class="favorites-modal__type favorites-modal__type--electrico">Eléctrico</li>
+                  </ul>
+                </div>
+              </section>
+              <div class="favorites-modal__actions">
+                <a class="favorites-modal__detail" href="detalle-pokemon-pikachu.html">Ver detalle</a>
+                <button class="favorites-modal__remove" type="button" aria-label="Quitar a Pikachu de favoritos">Quitar de favoritos</button>
+              </div>
+              </article>
+            </li>
+          </ul>
+        </section>
 
-
-                <li>
-                    <img src="assets/pikachu.png"
-                         alt="Pikachu">
-                    <p><strong>#025 Pikachu</strong></p>
-                    <p>Tipo: Eléctrico</p>
-                    <a href="detalle-pokemon-pikachu.html">
-                        Ver detalle de Pikachu
-                    </a>
-                    <button type="button">
-                        Quitar a Pikachu de favoritos
-                    </button>
-                </li>
-
-            </ul>
-            <button type="button">
-                Agregar desde capturados
-            </button>
-            <button type="submit">
-                Cerrar
-            </button>
-        </form>
+        <footer class="favorites-modal__footer">
+          <button class="favorites-modal__add" type="button">Agregar desde capturados</button>
+          <button class="favorites-modal__cancel" type="submit">Cerrar</button>
+        </footer>
+      </form>
     </dialog>
-
-</body>
-
+  </body>
 </html>

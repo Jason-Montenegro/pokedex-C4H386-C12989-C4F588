@@ -1,3 +1,24 @@
+<!-- en el <dialog> de Estadísticas (id="team-pokemon-modal") y su botón -->
+<!-- Este diálogo repite el id del modal de Equipo (team-pokemon-modal), así que el botón
+     "Estadísticas" (commandfor="team-pokemon-modal") abre el modal de Equipo, no el de
+     estadísticas. Cada diálogo necesita un id único, p. ej. id="statistics-modal", y el
+     botón debe apuntar a ese id. (Además closeby="any" está mal escrito: es closedby.) -->
+
+<!-- en la tabla de estadísticas -->
+<!-- Falta el <caption> con el título de la tabla, y los Pokémon de cada fila van como <td>
+     cuando deberían ser <th scope="row"> (son el encabezado de la fila). A las columnas del
+     <thead> también les falta scope="col". Así se marcan los encabezados en los dos ejes. -->
+
+<!-- en el equipo (<div class="card"> repetidos) -->
+<!-- Los Pokémon del equipo son una colección de elementos equivalentes, igual que Favoritos
+     y Capturados, así que convienen en una lista (<ul> con <li>), no en <div> repetidos. -->
+
+<!-- en los botones del modal de equipo (Quitar / Agregar / Cerrar, sin type) -->
+<!-- Estos botones no tienen type y están dentro de un <form method="dialog">, así que al
+     hacer clic envían el formulario y cierran el modal. Conviene type="button" (y usar
+     command="close" para el de cerrar). Además id="remove-pokemon" se repite en cada tarjeta:
+     los id deben ser únicos; para estilos es mejor una clase. -->
+
 <!DOCTYPE html>
 <html lang="es">
   <head>

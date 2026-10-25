@@ -1,82 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vista previa del modal de equipo Pokémon">
+    <title>Equipo Pokémon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal-team-pokemon.css">
+  </head>
+  <body class="team-modal-page">
+    <dialog class="team-modal" open aria-labelledby="team-modal-title">
+      <form class="team-modal__form" method="dialog">
+        <header class="team-modal__header">
+          <h1 class="team-modal__title" id="team-modal-title">Team Pokémon</h1>
+          <button class="team-modal__close" type="submit">
+            <span class="team-modal__visually-hidden">Cerrar modal</span>
+          </button>
+        </header>
 
-</head>
-<body>
-  <dialog id="team-pokemon-modal" class="modal" closedby="any" open>
-    <form method="dialog">
-      <h2 id="modal-title">Team Pokémon</h2>
-      <hr>
-      <!-- Here we add the CSS styles for the Pokémon cards and the layout and shape of the modal. -->
-      <section>
-          <p>5 de 6 Pokémon ocupados</p>
-          <div class="card">
-            <div class="pokemon-card">
-              <img class="pokemon-card__image" src="assets/bulbasaur-grande.png" alt="Bulbasaur" width="96" height="96">
-              <span class="pokemon-card__name">Bulbasaur</span>
-              <span class="pokemon-card__number">#001</span>
-              <hr>
-              <button id="remove-pokemon">Quitar</button>
-            </div>
-          </div>
+        <section class="team-modal__content" aria-label="Integrantes del equipo">
+          <p class="team-modal__summary">5 de 6 espacios ocupados</p>
+          <ul class="team-modal__grid">
+            <li class="team-modal__card">
+              <span class="team-modal__number">#001</span>
+              <img class="team-modal__pokemon" src="assets/bulbasaur-grande.png" alt="Bulbasaur" width="96" height="96">
+              <h2 class="team-modal__pokemon-name">Bulbasaur</h2>
+              <ul class="team-modal__types" aria-label="Tipos">
+                <li class="team-modal__type team-modal__type--planta">Planta</li>
+                <li class="team-modal__type team-modal__type--veneno">Veneno</li>
+              </ul>
+              <button class="team-modal__remove" type="button" aria-label="Quitar a Bulbasaur del equipo">Quitar</button>
+            </li>
+            <li class="team-modal__card">
+              <span class="team-modal__number">#002</span>
+              <img class="team-modal__pokemon" src="assets/ivysaur-grande.png" alt="Ivysaur" width="96" height="96">
+              <h2 class="team-modal__pokemon-name">Ivysaur</h2>
+              <ul class="team-modal__types" aria-label="Tipos">
+                <li class="team-modal__type team-modal__type--planta">Planta</li>
+                <li class="team-modal__type team-modal__type--veneno">Veneno</li>
+              </ul>
+              <button class="team-modal__remove" type="button" aria-label="Quitar a Ivysaur del equipo">Quitar</button>
+            </li>
+            <li class="team-modal__card">
+              <span class="team-modal__number">#004</span>
+              <img class="team-modal__pokemon" src="assets/charmander-grande.png" alt="Charmander" width="96" height="96">
+              <h2 class="team-modal__pokemon-name">Charmander</h2>
+              <ul class="team-modal__types" aria-label="Tipos">
+                <li class="team-modal__type team-modal__type--fuego">Fuego</li>
+              </ul>
+              <button class="team-modal__remove" type="button" aria-label="Quitar a Charmander del equipo">Quitar</button>
+            </li>
+            <li class="team-modal__card">
+              <span class="team-modal__number">#007</span>
+              <img class="team-modal__pokemon" src="assets/squirtle-grande.png" alt="Squirtle" width="96" height="96">
+              <h2 class="team-modal__pokemon-name">Squirtle</h2>
+              <ul class="team-modal__types" aria-label="Tipos">
+                <li class="team-modal__type team-modal__type--agua">Agua</li>
+              </ul>
+              <button class="team-modal__remove" type="button" aria-label="Quitar a Squirtle del equipo">Quitar</button>
+            </li>
+            <li class="team-modal__card">
+              <span class="team-modal__number">#025</span>
+              <img class="team-modal__pokemon" src="assets/pikachu-grande.png" alt="Pikachu" width="96" height="96">
+              <h2 class="team-modal__pokemon-name">Pikachu</h2>
+              <ul class="team-modal__types" aria-label="Tipos">
+                <li class="team-modal__type team-modal__type--electrico">Eléctrico</li>
+              </ul>
+              <button class="team-modal__remove" type="button" aria-label="Quitar a Pikachu del equipo">Quitar</button>
+            </li>
+            <li class="team-modal__card team-modal__card--empty">
+              <button class="team-modal__add-empty" type="button" aria-label="Agregar un Pokémon al espacio libre">
+                <span>Espacio libre</span>
+              </button>
+            </li>
+          </ul>
+        </section>
 
-          <div class="card">
-            <div class="pokemon-card">
-              <img class="pokemon-card__image" src="assets/ivysaur-grande.png" alt="Ivysaur" width="96" height="96">
-              <span class="pokemon-card__name">Ivysaur</span>
-              <span class="pokemon-card__number">#002</span>
-              <hr>
-              <button id="remove-pokemon">Quitar</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="pokemon-card">
-              <img class="pokemon-card__image" src="assets/venusaur-grande.png" alt="Venusaur" width="96" height="96">
-              <span class="pokemon-card__name">Venusaur</span>
-              <span class="pokemon-card__number">#003</span>
-              <hr>
-              <button id="remove-pokemon">Quitar</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="pokemon-card">
-              <img class="pokemon-card__image" src="assets/charmander-grande.png" alt="Charmander" width="96" height="96">
-              <span class="pokemon-card__name">Charmander</span>
-              <span class="pokemon-card__number">#004</span>
-              <hr>
-              <button id="remove-pokemon">Quitar</button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="pokemon-card">
-              <img class="pokemon-card__image" src="assets/charmeleon-grande.png" alt="Charmeleon" width="96" height="96">
-              <span class="pokemon-card__name">Charmeleon</span>
-              <span class="pokemon-card__number">#005</span>
-              <hr>
-              <button id="remove-pokemon">Quitar</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pokemon-card">
-              <hr>
-              <button id="add-pokemon">Agregar Pokémon</button>
-              <p>Espacio libre</p>
-            </div>
-          </div>
-      </section>
-      <section id="modal-footer">
-          <button id="add-pokemon">Agregar desde capturados</button>
-          <button id="close-modal">Cerrar</button>
-      </section>
-    </form>
-  </dialog>
-  <button id="open-modal">Abrir modal</button>
-</body>
-<footer>
-</footer>
+        <footer class="team-modal__footer">
+          <button class="team-modal__add" type="button">Agregar desde capturados</button>
+          <button class="team-modal__cancel" type="submit">Cerrar</button>
+        </footer>
+      </form>
+    </dialog>
+  </body>
 </html>
-

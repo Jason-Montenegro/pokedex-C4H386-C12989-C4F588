@@ -1,0 +1,439 @@
+/* 
+   Modal de favoritos
+*/
+
+.favorites-modal {
+  position: fixed;
+  inset: 50% auto auto 50%;
+  width: min(47rem, calc(100vw - 2rem));
+  max-width: none;
+  max-height: calc(100vh - 2rem);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-xl) var(--radio-xl) 0 0;
+  background: var(--blanco);
+  color: var(--navy);
+  font-family: var(--fuente-texto);
+  box-shadow: var(--sombra-3);
+}
+
+.favorites-modal:not([open]) {
+  display: none;
+}
+
+.favorites-modal::backdrop {
+  background: rgba(20, 44, 82, .72);
+}
+
+.favorites-modal__form {
+  display: flex;
+  max-height: calc(100vh - 2rem);
+  flex-direction: column;
+}
+
+/* Encabezado */
+.favorites-modal__header {
+  display: flex;
+  min-height: 5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--linea);
+  background: var(--blanco);
+}
+
+.favorites-modal__title {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--fuente-titulo);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.favorites-modal__title::before {
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 3rem;
+  content: "";
+  border-radius: var(--radio);
+  background: var(--amarillo) url("./assets/favorite-star-icon.svg") center / 1.35rem no-repeat;
+  box-shadow: 0 10px 18px -8px var(--amarillo-borde);
+}
+
+.favorites-modal__close {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 2.75rem;
+  place-items: center;
+  padding: 0;
+  border: 2px solid var(--linea);
+  border-radius: var(--radio-pastilla);
+  background: var(--blanco);
+  color: var(--navy);
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.favorites-modal__close::before {
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  background-color: currentColor;
+  -webkit-mask: url("./assets/close.svg") center / contain no-repeat;
+  mask: url("./assets/close.svg") center / contain no-repeat;
+}
+
+.favorites-modal__close:hover,
+.favorites-modal__close:focus-visible {
+  transform: rotate(8deg);
+  background-color: var(--crema);
+}
+
+/* Contenido */
+.favorites-modal__content {
+  min-height: 0;
+  padding: 1rem 1.5rem 1.25rem;
+  overflow-y: auto;
+}
+
+.favorites-modal__summary {
+  margin: 0 0 .8rem;
+  color: var(--tinta-suave);
+  font-size: .95rem;
+}
+
+.favorites-modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.favorites-modal__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .7rem .85rem;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-lg);
+  background: var(--blanco);
+  box-shadow: var(--sombra-1);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.favorites-modal__item:hover,
+.favorites-modal__item:focus-within {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-2);
+}
+
+.favorites-modal__pokemon-info {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: .75rem;
+}
+
+.favorites-modal__favorite-mark {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 2.65rem;
+  place-items: center;
+  border: 2px solid var(--amarillo-borde);
+  border-radius: var(--radio-pastilla);
+  background: var(--crema);
+}
+
+.favorites-modal__favorite-mark::before {
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  background: url("./assets/favorite-star-icon.svg") center / contain no-repeat;
+}
+
+.favorites-modal__sprite-box {
+  display: grid;
+  width: 4.1rem;
+  height: 4.1rem;
+  flex: 0 0 4.1rem;
+  place-items: center;
+  border-radius: var(--radio);
+  background: var(--sprite-zona);
+  box-shadow: var(--sombra-1);
+}
+
+.favorites-modal__pokemon-image {
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+}
+
+.favorites-modal__pokemon-data {
+  min-width: 0;
+}
+
+.favorites-modal__name-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+}
+
+.favorites-modal__pokemon-name {
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--fuente-titulo);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.favorites-modal__number {
+  padding: .15rem .55rem;
+  border-radius: var(--radio-pastilla);
+  background: var(--amarillo);
+  color: var(--navy);
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.favorites-modal__types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+  margin: .25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.favorites-modal__type {
+  padding: .1rem .5rem;
+  border-radius: var(--radio-pastilla);
+  color: var(--blanco);
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.favorites-modal__type--planta {
+  background: var(--tipo-planta);
+}
+
+.favorites-modal__type--veneno {
+  background: var(--tipo-veneno);
+}
+
+.favorites-modal__type--fuego {
+  background: var(--tipo-fuego);
+}
+
+.favorites-modal__type--agua {
+  background: var(--tipo-agua);
+}
+
+.favorites-modal__type--electrico {
+  background: var(--tipo-electrico);
+}
+
+.favorites-modal__actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: .7rem;
+}
+
+.favorites-modal__detail,
+.favorites-modal__remove {
+  display: inline-flex;
+  min-height: 2.45rem;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  padding: .35rem 1rem;
+  border: 2px solid;
+  border-radius: var(--radio-pastilla);
+  background: var(--blanco);
+  font: 700 .82rem var(--fuente-texto);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.favorites-modal__detail {
+  border-color: var(--azul);
+  color: var(--azul);
+}
+
+.favorites-modal__detail::before {
+  order: 2;
+  width: .9rem;
+  height: .9rem;
+  content: "";
+  background-color: currentColor;
+  -webkit-mask: url("./assets/flecha-azul.svg") center / contain no-repeat;
+  mask: url("./assets/flecha-azul.svg") center / contain no-repeat;
+}
+
+.favorites-modal__detail:hover,
+.favorites-modal__detail:focus-visible {
+  transform: translateY(-2px);
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+.favorites-modal__remove {
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+
+.favorites-modal__remove::before {
+  order: 2;
+  width: .75rem;
+  height: .75rem;
+  content: "";
+  background-color: currentColor;
+  -webkit-mask: url("./assets/close.svg") center / contain no-repeat;
+  mask: url("./assets/close.svg") center / contain no-repeat;
+}
+
+.favorites-modal__remove:hover,
+.favorites-modal__remove:focus-visible {
+  transform: translateY(-2px);
+  background: var(--rojo);
+  color: var(--blanco);
+}
+
+/* Pie */
+.favorites-modal__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .75rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--linea);
+  background: var(--blanco);
+}
+
+.favorites-modal__add,
+.favorites-modal__cancel {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .55rem 1.1rem;
+  border: 2px solid transparent;
+  border-radius: var(--radio-pastilla);
+  font: 700 .9rem var(--fuente-texto);
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.favorites-modal__add {
+  background: var(--azul);
+  color: var(--blanco);
+  box-shadow: var(--sombra-1);
+}
+
+.favorites-modal__add::before {
+  width: .9rem;
+  height: .9rem;
+  content: "";
+  background-color: currentColor;
+  -webkit-mask: url("./assets/add.svg") center / contain no-repeat;
+  mask: url("./assets/add.svg") center / contain no-repeat;
+}
+
+.favorites-modal__add:hover,
+.favorites-modal__add:focus-visible {
+  transform: translateY(-2px);
+  background: var(--azul-borde);
+  box-shadow: var(--sombra-2);
+}
+
+.favorites-modal__cancel {
+  border-color: var(--linea);
+  background: var(--blanco);
+  color: var(--navy);
+}
+
+.favorites-modal__cancel:hover,
+.favorites-modal__cancel:focus-visible {
+  transform: translateY(-2px);
+  background: var(--crema);
+}
+
+.favorites-modal :focus-visible {
+  outline-color: var(--azul-borde);
+}
+
+.favorites-modal__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 44rem) {
+  .favorites-modal {
+    width: calc(100vw - 1rem);
+    max-height: calc(100vh - 1rem);
+  }
+
+  .favorites-modal__form {
+    max-height: calc(100vh - 1rem);
+  }
+
+  .favorites-modal__header,
+  .favorites-modal__content,
+  .favorites-modal__footer {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .favorites-modal__item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .favorites-modal__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 30rem) {
+  .favorites-modal__pokemon-info {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .favorites-modal__actions,
+  .favorites-modal__footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .favorites-modal__detail,
+  .favorites-modal__remove,
+  .favorites-modal__add,
+  .favorites-modal__cancel {
+    width: 100%;
+  }
+}

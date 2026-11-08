@@ -437,3 +437,31 @@
     width: 100%;
   }
 }
+
+/* Vista previa de favoritos en el perfil */
+.favorites-pokemon__preview {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+  padding-left: .5rem;
+}
+
+.favorites-pokemon__preview img {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: .2rem;
+  border: 2px solid var(--amarillo-borde);
+  border-radius: 50%;
+  background: var(--crema);
+  object-fit: contain;
+}
+
+.favorites-modal__empty {
+  margin: 1.5rem 0;
+  text-align: center;
+  color: var(--tinta-suave);
+}
+
+.favorites-modal__type--volador {
+  background: var(--tipo-volador);
+}

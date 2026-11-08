@@ -19,15 +19,17 @@ export function chipsTipos(pokemon) {
 
 // Mini-sprites de la tarjeta de sección: los tres primeros y un "+N" si hay más.
 // seccion es el final de la clase: 'capturados', 'favoritos' o 'equipo'.
+// Son <span> y no <ul>/<li> porque van dentro de un <button>, que solo
+// admite contenido en línea (si no, el validador W3C marca error).
 export function pintarMiniSprites(seccion, pokemones) {
   const mini = document.querySelector(`.seccion--${seccion} .mini-sprites`);
   if (!mini) return;
 
   const primeros = pokemones.slice(0, 3)
-    .map((p) => `<li><img src="assets/${p.slug}.png" alt="" width="34" height="34"></li>`)
+    .map((p) => `<span><img src="assets/${p.slug}.png" alt="" width="34" height="34"></span>`)
     .join('');
   const resto = pokemones.length > 3
-    ? `<li class="mini-sprites__mas">+${pokemones.length - 3}</li>` : '';
+    ? `<span class="mini-sprites__mas">+${pokemones.length - 3}</span>` : '';
   mini.innerHTML = primeros + resto;
 }
 

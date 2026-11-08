@@ -293,7 +293,7 @@
   list-style: none;
 }
 
-.mini-sprites li {
+.mini-sprites > span {
   display: grid;
   place-items: center;
   width: 2.75rem;
@@ -305,7 +305,7 @@
   box-shadow: 0 3px 8px -2px rgba(20, 44, 82, .35);
 }
 
-.mini-sprites li:first-child { margin-left: 0; }
+.mini-sprites > span:first-child { margin-left: 0; }
 
 .mini-sprites img { width: 2.1rem; height: 2.1rem; }
 
@@ -1040,3 +1040,59 @@ body:has(dialog[open]) {
 
 /* (La regla que apaga las animaciones para quien pide reducir movimiento
    vive en styles.css, sección 12, y alcanza también a esta hoja.) */
+
+
+/* --------------------------------------------------------------------------
+   11. Estados que pinta JavaScript (laboratorio 03)
+   -------------------------------------------------------------------------- */
+
+/* Mensaje de lista vacía (Capturados, Favoritos y Equipo). Ocupa todas las
+   columnas de la grilla en la que esté. */
+.lista-vacia {
+  grid-column: 1 / -1;
+  padding: 1rem 1.25rem;
+  color: var(--tinta-suave);
+  font-weight: 500;
+  background: #EEF4FD;
+  border: 2px solid #DCE5F0;
+  border-radius: var(--radio-lg);
+}
+
+/* Aviso del pie de Capturados: va en su propia línea, debajo de los
+   botones, y no ocupa espacio mientras está vacío. */
+.modal__aviso {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.modal__aviso:empty {
+  display: none;
+}
+
+/* El espacio libre del equipo es un <button>: se le quitan los estilos de
+   botón del navegador para que se vea como la ficha punteada, y al pasar
+   el mouse se anima igual que las fichas ocupadas. */
+button.equipo__libre {
+  width: 100%;
+  height: 100%;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease), background var(--dur), border-color var(--dur);
+}
+
+button.equipo__libre:hover {
+  transform: translateY(-4px);
+  border-color: var(--azul);
+  background: rgba(41, 103, 197, .12);
+}
+
+button.equipo__libre:hover .equipo__mas {
+  transform: scale(1.1);
+}
+
+.equipo__mas {
+  transition: transform var(--dur) var(--ease);
+}

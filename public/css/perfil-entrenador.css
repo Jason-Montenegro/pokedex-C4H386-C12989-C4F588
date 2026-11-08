@@ -1070,3 +1070,29 @@ body:has(dialog[open]) {
 .modal__aviso:empty {
   display: none;
 }
+
+/* El espacio libre del equipo es un <button>: se le quitan los estilos de
+   botón del navegador para que se vea como la ficha punteada, y al pasar
+   el mouse se anima igual que las fichas ocupadas. */
+button.equipo__libre {
+  width: 100%;
+  height: 100%;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease), background var(--dur), border-color var(--dur);
+}
+
+button.equipo__libre:hover {
+  transform: translateY(-4px);
+  border-color: var(--azul);
+  background: rgba(41, 103, 197, .12);
+}
+
+button.equipo__libre:hover .equipo__mas {
+  transform: scale(1.1);
+}
+
+.equipo__mas {
+  transition: transform var(--dur) var(--ease);
+}

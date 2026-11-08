@@ -17,11 +17,15 @@ function crearFicha(p) {
     </li>`;
 }
 
+// El espacio libre es un botón: abre Capturados (con command/commandfor,
+// igual que "Agregar desde capturados") para elegir quién lo ocupa.
 function crearEspacioLibre() {
   return `
-    <li class="equipo__libre">
-      <span class="equipo__mas"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-plus"/></svg></span>
-      Espacio libre
+    <li>
+      <button type="button" class="equipo__libre" command="show-modal" commandfor="modal-capturados">
+        <span class="equipo__mas"><svg class="icono " aria-hidden="true" width="24" height="24"><use href="#i-plus"/></svg></span>
+        Espacio libre<span class="solo-lectores">: agregar un Pokémon desde capturados</span>
+      </button>
     </li>`;
 }
 

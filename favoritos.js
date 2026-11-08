@@ -1,16 +1,5 @@
 // Datos de los Pokémon que aparecen en Capturados.
-const pokemones = [
-  { numero: "001", nombre: "Bulbasaur", tipos: ["Planta", "Veneno"] },
-  { numero: "002", nombre: "Ivysaur", tipos: ["Planta", "Veneno"] },
-  { numero: "003", nombre: "Venusaur", tipos: ["Planta", "Veneno"] },
-  { numero: "004", nombre: "Charmander", tipos: ["Fuego"] },
-  { numero: "005", nombre: "Charmeleon", tipos: ["Fuego"] },
-  { numero: "006", nombre: "Charizard", tipos: ["Fuego", "Volador"] },
-  { numero: "007", nombre: "Squirtle", tipos: ["Agua"] },
-  { numero: "008", nombre: "Wartortle", tipos: ["Agua"] },
-  { numero: "009", nombre: "Blastoise", tipos: ["Agua"] },
-  { numero: "025", nombre: "Pikachu", tipos: ["Eléctrico"] }
-];
+import { pokemones } from "./pokemones.js";
 
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 

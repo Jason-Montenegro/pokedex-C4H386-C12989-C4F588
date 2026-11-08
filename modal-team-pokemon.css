@@ -217,6 +217,7 @@
 .team-modal__type--fuego { background: var(--tipo-fuego); }
 .team-modal__type--agua { background: var(--tipo-agua); }
 .team-modal__type--electrico { background: var(--tipo-electrico); }
+.team-modal__type--volador { background: var(--tipo-volador); }
 
 .team-modal__remove {
   display: flex;
@@ -417,4 +418,54 @@
   .team-modal__cancel {
     width: 100%;
   }
+}
+
+/* mensaje cuando el equipo está vacío */
+.team-modal__empty {
+  margin: 1.5rem 0;
+  text-align: center;
+  color: var(--tinta-suave);
+}
+
+.team-modal__grid[hidden] {
+  display: none;
+}
+
+/* vista previa del equipo en la tarjeta del perfil */
+.team-pokemon__preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: .75rem 0 0;
+  padding: 0 0 0 .5rem;
+  list-style: none;
+}
+
+.team-pokemon__preview[hidden] {
+  display: none;
+}
+
+.team-pokemon__preview img {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: .2rem;
+  border: 2px solid var(--azul);
+  border-radius: 50%;
+  background: var(--crema);
+  object-fit: contain;
+}
+
+.team-pokemon__available {
+  margin: .5rem 0 0;
+  padding-left: .5rem;
+  color: var(--tinta-suave);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+/* aviso del modal de capturados (limite del equipo, etc) */
+.capturados__aviso {
+  min-height: 1.5em;
+  color: var(--rojo);
+  font-weight: 700;
 }

@@ -118,7 +118,7 @@
               <section class="card-pokemon__content">
                 <div class="card-pokemon__title">
                   <h2>Equipo Pokémon</h2>
-                  <p>5 de 6 Pokémon ocupados</p>
+                  <p>0 de 6 Pokémon ocupados</p>
                 </div>
                 <button
                 class="card-container-button"
@@ -127,6 +127,8 @@
                 command="show-modal"></button>
               </section>
             </article>
+            <ul class="team-pokemon__preview" aria-label="Vista previa del equipo" hidden></ul>
+            <p class="team-pokemon__available">6 espacios disponibles</p>
 
             <dialog id="team-pokemon-modal" class="team-modal" closedby="any" aria-labelledby="team-modal-title">
               <form class="team-modal__form" method="dialog">
@@ -138,61 +140,10 @@
                 </header>
 
                 <section class="team-modal__content" aria-label="Integrantes del equipo">
-                  <p class="team-modal__summary">5 de 6 espacios ocupados</p>
-                  <ul class="team-modal__grid">
-                    <li class="team-modal__card">
-                      <span class="team-modal__number">#001</span>
-                      <img class="team-modal__pokemon" src="assets/bulbasaur-grande.png" alt="Bulbasaur" width="96" height="96">
-                      <h3 class="team-modal__pokemon-name">Bulbasaur</h3>
-                      <ul class="team-modal__types" aria-label="Tipos">
-                        <li class="team-modal__type team-modal__type--planta">Planta</li>
-                        <li class="team-modal__type team-modal__type--veneno">Veneno</li>
-                      </ul>
-                      <button class="team-modal__remove" type="button" aria-label="Quitar a Bulbasaur del equipo">Quitar</button>
-                    </li>
-                    <li class="team-modal__card">
-                      <span class="team-modal__number">#002</span>
-                      <img class="team-modal__pokemon" src="assets/ivysaur-grande.png" alt="Ivysaur" width="96" height="96">
-                      <h3 class="team-modal__pokemon-name">Ivysaur</h3>
-                      <ul class="team-modal__types" aria-label="Tipos">
-                        <li class="team-modal__type team-modal__type--planta">Planta</li>
-                        <li class="team-modal__type team-modal__type--veneno">Veneno</li>
-                      </ul>
-                      <button class="team-modal__remove" type="button" aria-label="Quitar a Ivysaur del equipo">Quitar</button>
-                    </li>
-                    <li class="team-modal__card">
-                      <span class="team-modal__number">#004</span>
-                      <img class="team-modal__pokemon" src="assets/charmander-grande.png" alt="Charmander" width="96" height="96">
-                      <h3 class="team-modal__pokemon-name">Charmander</h3>
-                      <ul class="team-modal__types" aria-label="Tipos">
-                        <li class="team-modal__type team-modal__type--fuego">Fuego</li>
-                      </ul>
-                      <button class="team-modal__remove" type="button" aria-label="Quitar a Charmander del equipo">Quitar</button>
-                    </li>
-                    <li class="team-modal__card">
-                      <span class="team-modal__number">#007</span>
-                      <img class="team-modal__pokemon" src="assets/squirtle-grande.png" alt="Squirtle" width="96" height="96">
-                      <h3 class="team-modal__pokemon-name">Squirtle</h3>
-                      <ul class="team-modal__types" aria-label="Tipos">
-                        <li class="team-modal__type team-modal__type--agua">Agua</li>
-                      </ul>
-                      <button class="team-modal__remove" type="button" aria-label="Quitar a Squirtle del equipo">Quitar</button>
-                    </li>
-                    <li class="team-modal__card">
-                      <span class="team-modal__number">#025</span>
-                      <img class="team-modal__pokemon" src="assets/pikachu-grande.png" alt="Pikachu" width="96" height="96">
-                      <h3 class="team-modal__pokemon-name">Pikachu</h3>
-                      <ul class="team-modal__types" aria-label="Tipos">
-                        <li class="team-modal__type team-modal__type--electrico">Eléctrico</li>
-                      </ul>
-                      <button class="team-modal__remove" type="button" aria-label="Quitar a Pikachu del equipo">Quitar</button>
-                    </li>
-                    <li class="team-modal__card team-modal__card--empty">
-                      <button class="team-modal__add-empty" type="button" aria-label="Agregar un Pokémon al espacio libre">
-                        <span>Espacio libre</span>
-                      </button>
-                    </li>
-                  </ul>
+                  <p class="team-modal__summary">0 de 6 espacios ocupados</p>
+                  <p class="team-modal__empty" hidden>Todavía no tenés Pokémon en tu equipo. Abrí Capturados, seleccioná algunos y tocá «Agregar al equipo».</p>
+                  <!-- las fichas y los espacios libres se generan con js -->
+                  <ul class="team-modal__grid"></ul>
                 </section>
 
                 <footer class="team-modal__footer">
@@ -560,9 +511,11 @@
               </button>
 
 
-              <button type="button">
+              <button type="button" id="agregar-equipo">
                 Agregar al equipo
               </button>
+
+              <p id="aviso-equipo" class="capturados__aviso" role="status"></p>
 
 
               <button
@@ -764,5 +717,6 @@
           <a href="https://pokemondb.net/" target="_blank" rel="noopener">Pokémon Database</a>.</small></p>
     </footer>
     <script type="module" src="favoritos.js"></script>
+    <script type="module" src="equipo.js"></script>
   </body>
 </html>

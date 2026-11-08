@@ -1040,3 +1040,33 @@ body:has(dialog[open]) {
 
 /* (La regla que apaga las animaciones para quien pide reducir movimiento
    vive en styles.css, sección 12, y alcanza también a esta hoja.) */
+
+
+/* --------------------------------------------------------------------------
+   11. Estados que pinta JavaScript (laboratorio 03)
+   -------------------------------------------------------------------------- */
+
+/* Mensaje de lista vacía (Capturados, Favoritos y Equipo). Ocupa todas las
+   columnas de la grilla en la que esté. */
+.lista-vacia {
+  grid-column: 1 / -1;
+  padding: 1rem 1.25rem;
+  color: var(--tinta-suave);
+  font-weight: 500;
+  background: #EEF4FD;
+  border: 2px solid #DCE5F0;
+  border-radius: var(--radio-lg);
+}
+
+/* Aviso del pie de Capturados: va en su propia línea, debajo de los
+   botones, y no ocupa espacio mientras está vacío. */
+.modal__aviso {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.modal__aviso:empty {
+  display: none;
+}
